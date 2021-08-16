@@ -1,0 +1,43 @@
+.navbar-item{
+     font-weight: bold;
+     font-size: larger;
+}
+.bg-img { 
+        background-image: url(755434.jpg) ;
+        background-position: center center;
+        background-repeat:  no-repeat;
+        background-attachment: fixed;
+        background-size:  cover;
+    }
+.input{
+    height: 10%;
+    width: 40%;
+}
+.suggestion{
+    font-family: Comic Sans MS;
+    font-weight: bold;
+    font-size: medium;
+    color: white;
+
+}
+
+.image is-50x50{
+    size: 40%;
+}
+
+.box{
+    color: #9879a5;
+    font-family: Bahnschrift;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer{
+    color: white;
+    background-color: black;
+}
+
+.last-desc{
+    font-family: Comic Sans MS;
+    font-weight: bold;
+}
+
