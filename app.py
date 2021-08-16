@@ -23,7 +23,7 @@ def dizzywinds_get():
     weather_data = []
     for city in cities:
         r = get_weather_data(city.name)
-        print(r) #I used this to see in what way is the requested data stored in 'r'.
+        #print(r) #I used this to see in what way is the requested data stored in 'r'.
         weather = {
           'city' : r['name'],
           'country' : r['sys']['country'],
@@ -35,7 +35,7 @@ def dizzywinds_get():
         }
         weather_data.append(weather)
 
-    return render_template('base.html', weather = weather_data)
+    return render_template('index.html', weather = weather_data)
 
 @app.route('/', methods = ['POST'])
 def dizzywinds_post():
@@ -66,5 +66,5 @@ def delete_city(name):
    
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug= True , port=8000)
     
