@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dizzywinds!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="bg-img">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    Dizzywinds
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#about-desc">
+                        About
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <section class="section">
+            <form method="POST">
+                <div class="control is-expanded">
+                    <input class="input" name="city" type="text" placeholder="Location">
+                    <div class="suggestion">Please follow this format:Loaction's name should start from capital letter
+                        and
+                        use the latest names of places(official).</div>
+                </div>
+                <button class="button is-dark">Add</button>
+            </form>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-offset-4 is-4">
+                        {% for wea in weather %}
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left">
+                                    <figure class="image is-50x50">
+                                        <img src="http://openweathermap.org/img/w/{{ wea.icon }}.png" alt="Image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <span class="title">{{ wea.city }} {{wea.country}}</span>
+                                            <br>
+                                            <span class="subtitle">{{ wea.temperature }}&deg; C </span>
+                                            <br>
+                                            Feels like : {{ wea.feeltemp }}&deg; C
+                                            <br> Wind speed : {{wea.windspeed}} m/s
+                                            <br> {{ wea.description }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <a href="{{ url_for('delete_city', name = wea.city) }}">
+                                        <button class="delete"></button>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+<footer class="footer" id="about-desc">
+    <div class="content has-text-centered">
+        <p>
+        <h3>
+            <strong>Dizzywinds &#169;</strong>
+        </h3>
+        <div class="last-desc">
+            by <a href="https://www.linkedin.com/in/deepak-kumar-052a22190/">Deepak Kumar</a>
+            <br>
+            Dizzywinds is a self-project developed in July 2021.
+            <br>
+            <a href="https://github.com/Sheriffwoody31">Github</a>
+        </div>
+        </p>
+    </div>
+</footer>
+
+</html>
